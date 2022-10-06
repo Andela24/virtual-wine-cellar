@@ -8,5 +8,8 @@ delete '/logout' to: 'sessions#destroy'
 post '/signup', to: 'users#create'
 get '/me', to: 'users#show'
 
+resources :wineries
+resources :bottles. only: [:index, :show, :new, :create, :edit, :update]
+
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
