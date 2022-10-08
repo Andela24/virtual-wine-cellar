@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from './Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'; 
-// import { getCurrentUser } from './actions/auth';
+import { getCurrentUser } from './actions/auth';
 
 import Home from './Home';
 import Login from './Login';
@@ -26,9 +26,9 @@ function App() {
     setLoading(false);
   }
 
-// useEffect(() => {
-//   getCurrentUser(handleCurrentUser)
-// }, [])
+useEffect(() => {
+  getCurrentUser(handleCurrentUser)
+}, [])
 
 
   return (

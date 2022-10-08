@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { logout } from '../actions/auth'
+import { logout } from './actions/auth'
 
 const NavBar = ( { loggedIn, logoutCurrentUser } ) => {
     if(loggedIn) {
