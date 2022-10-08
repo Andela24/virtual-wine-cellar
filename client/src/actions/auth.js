@@ -13,3 +13,20 @@ export const CreateAccount = async (details, handleCurrentUser ) => {
     handleCurrentUser(data);
 
 }
+
+export const logout = async (e, logoutCurrentUser) => {
+    e.preventDefault();
+
+    const resp = await fetch ('/logout',{
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        }
+    })
+
+        const data = await resp.json();
+
+        logoutCurrentUser();
+    
+}
