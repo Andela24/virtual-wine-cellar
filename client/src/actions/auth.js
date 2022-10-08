@@ -30,3 +30,16 @@ export const logout = async (e, logoutCurrentUser) => {
         logoutCurrentUser();
     
 }
+
+export const getCurrentUser = async (handleCurrentUser) => {
+    const resp = await fetch( 'current-user', {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        withCredentials: true
+    })
+    const data = await resp.json();
+
+    handleCurrentUser(data);
+}
