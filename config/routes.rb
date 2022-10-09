@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   # Leave this here to help deploy your app later!
 
 post '/login', to: 'sessions#create'
-# delete '/logout' to: 'sessions#destroy'
 get '/current-user', to: 'users#get_current_user'
-post '/singup', to: 'users#create'
-get '/me', to: 'users#show'
+post '/signup', to: 'users#create'
+# get '/me', to: 'users#show'
+delete '/logout', to: 'sessions#destroy'
 
 resources :wineries
 # resources :bottles, only: [:index, :show, :new, :create, :edit, :update]
