@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CreateAccount } from './actions/auth'
+import { createAccount } from './actions/auth'
 
 const Signup = ( { handleCurrentUser }) => {
     const [state, setState ] = useState ({
@@ -17,7 +17,7 @@ const handleChange = e => {
 const handleSubmit = e => {
     e.prevent.Default();
 
-    CreateAccount(state, handleCurrentUser)
+    createAccount(state, handleCurrentUser)
 }
 
 return (
