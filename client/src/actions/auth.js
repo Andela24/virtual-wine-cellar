@@ -48,7 +48,7 @@ export const logout = async (e, logoutCurrentUser) => {
 }
 
 export const getCurrentUser = async (handleCurrentUser) => {
-    const resp = await fetch( 'current-user', {
+    const resp = await fetch('current-user', {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
