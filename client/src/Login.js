@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { login } from './actions/auth'
+import { login } from '../actions/auth'
 
 const Login = ({ handleCurrentUser }) => {
   const [state, setState] = useState({
@@ -39,5 +39,3 @@ const Login = ({ handleCurrentUser }) => {
 }
 
 export default Login
-
-
