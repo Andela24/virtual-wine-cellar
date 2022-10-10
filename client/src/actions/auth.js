@@ -10,6 +10,7 @@ export const createAccount = async (details, handleCurrentUser ) => {
     })
 
     const data = await resp.json()
+    
     handleCurrentUser(data);
 
 }
