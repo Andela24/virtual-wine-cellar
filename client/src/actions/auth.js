@@ -26,7 +26,7 @@ export const login = async (details, handleCurrentUser) => {
   })
 
   const data = await resp.json();
-
+  console.log(data)
   handleCurrentUser(data);
 }
 

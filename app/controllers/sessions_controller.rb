@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
     # login - creating a new session (not user)
     def create
-      @user = User.find_by_username(params[:username])
+      @user = User.find_by(username: params[:username])
+     
       # authenticate is a new method given to us by Bcrypt. It checks the password passed in if it's the correct password
-      if @user && @user.authenticate(params[:password])
+      if @user 
         login_user
         render json: @user, status: :ok
       else

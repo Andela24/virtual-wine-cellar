@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   # signup - create account and log in user
   def create
-    user = User.new(user_params)
-
-    if user.save
+    user = User.create(user_params)
+    # byebug
+    if user.valid?
+      
       # logs in user
-      login_user # creates new session
-      render json: user
+      session[:user_id] = user.id # remembering who our user is
+      render json: user, status: :ok
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end
