@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
+
+  def show 
+    #get current user
+
+  end
   # signup - create account and log in user
   def create
     user = User.create(user_params)
-    # byebug
+    
     if user.valid?
-      
       # logs in user
       session[:user_id] = user.id # remembering who our user is
       render json: user, status: :ok

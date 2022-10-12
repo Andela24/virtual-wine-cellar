@@ -10,7 +10,7 @@ export const createAccount = async (details, handleCurrentUser) => {
   })
 
   const data = await resp.json();
-
+  console.log(data)
   handleCurrentUser(data);
 }
 
@@ -27,6 +27,7 @@ export const login = async (details, handleCurrentUser) => {
 
   const data = await resp.json();
   console.log(data)
+
   handleCurrentUser(data);
 }
 
@@ -47,7 +48,7 @@ export const logout = async (e, logoutCurrentUser) => {
 }
 
 export const getCurrentUser = async (handleCurrentUser) => {
-  const resp = await fetch('current-user', {
+  const resp = await fetch('/current-user', {
     headers: {
       "Accept": "application/json",
       "Content-Type": "application/json"

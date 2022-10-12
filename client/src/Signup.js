@@ -22,8 +22,8 @@ const Signup = ({ handleCurrentUser }) => {
 
   return (
     <div>
-      <h1>Create Account</h1>
-      <form onSubmit={ handleSubmit }>
+      <h1>Create a new account</h1>
+      <form className="form" onSubmit={ handleSubmit }>
         <div>
           <label htmlFor="username">Username: </label>
           <input type="text" id="username" name="username" value={ state.username } onChange={ handleChange } />
