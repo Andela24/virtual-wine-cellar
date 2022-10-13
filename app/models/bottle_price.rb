@@ -1,4 +1,4 @@
 class BottlePrice < ApplicationRecord
-    belongs_to :user
-    belongs_to :bottle
+    # belongs_to :user
+    # belongs_to :bottle
 end
