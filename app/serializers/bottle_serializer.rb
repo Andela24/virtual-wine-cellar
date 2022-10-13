@@ -3,7 +3,6 @@ class BottleSerializer < ActiveModel::Serializer
 
   belongs_to :winery
   has_many :bottle_prices
-  has_many :users, through: :bottle_prices
+  belongs_to :user
 
-  # accepts_nested_attributes_for :bottle_prices
 end
