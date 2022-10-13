@@ -1,4 +1,5 @@
 class Bottle < ApplicationRecord
+    # includes 
     belongs_to :user
     belongs_to :winery
   
