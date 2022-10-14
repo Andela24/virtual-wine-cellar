@@ -3,21 +3,19 @@ class WineriesController < ApplicationController
     before_action :set_winery, only: [:show, :edit, :update]
 
     def index
-        @wineries = Winery.all
+        wineries = Winery.all
+        render json: wineries, status: :ok
       end
     
       def new
-        @winery =  Winery.new
+        winery =  Winery.new
       end
     
       def create
-        @winery = Winery.create(winery_params)
-        render json: @winery, status: 201
+        winery = Winery.create(winery_params)
+        render json: winery, status: 201
       end
     
-      def edit
-    
-      end
     
       def show
         @bottle = Bottle.new

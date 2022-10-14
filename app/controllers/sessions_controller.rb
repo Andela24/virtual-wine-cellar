@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorize, only: :create
+
     # login - creating a new session (not user)
     def create
       user = User.find_by(username: params[:username])

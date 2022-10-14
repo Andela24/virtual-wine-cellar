@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { logout } from './actions/auth'
 
-const Navbar = ({ loggedIn, logoutCurrentUser }) => {
+const Navbar = ({ loggedIn, currentUser, logoutCurrentUser }) => {
   if( loggedIn ) {
     return (
       <ul>

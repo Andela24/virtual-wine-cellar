@@ -2,12 +2,15 @@ import React, {useState, useEffect} from 'react';
 import Navbar from './Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'; 
 import { getCurrentUser } from './actions/auth';
+import { useHistory } from 'react-router-dom';
+
 
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 
 function App() {
+  const history = useHistory();
   const [currentUser, setCurrentUser]= useState(null);
   const [loggedIn, setLoggedIn]= useState(false);
   const [loading, setLoading]= useState(true);
@@ -17,6 +20,7 @@ function App() {
       setCurrentUser(user);
       setLoggedIn(true);
       setLoading(false);
+     
     }
   }
 

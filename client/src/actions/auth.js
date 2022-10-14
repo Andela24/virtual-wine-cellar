@@ -34,6 +34,7 @@ export const login = async (details, handleCurrentUser) => {
 export const logout = async (e, logoutCurrentUser) => {
   e.preventDefault();
 
+  
   const resp = await fetch('/logout', {
     method: "DELETE",
     headers: {
@@ -45,6 +46,7 @@ export const logout = async (e, logoutCurrentUser) => {
   const data = await resp.json();
 
   logoutCurrentUser();
+
 }
 
 export const getCurrentUser = async (handleCurrentUser) => {
