@@ -12,7 +12,7 @@ const AddBottle = ({ onAdd }) => {
         e.preventDefault()
 
         if(!title) {
-            alert('Please add a product')
+            alert('Please add a title.')
             return
         }
 
@@ -27,7 +27,7 @@ const AddBottle = ({ onAdd }) => {
     return (
         <form className='add-form' onSubmit={onSubmit}>
             <div className='form-control'>
-                <label>Product</label>
+                <label>Title </label>
                 <input type='text' 
                 placeholder='Add Title' 
                 value={title} 

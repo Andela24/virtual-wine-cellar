@@ -8,6 +8,7 @@ import { getCurrentUser } from './actions/auth';
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
+import About from './About';
 
 function App() {
   // const navigate = useNavigate();
@@ -44,6 +45,7 @@ useEffect(() => {
         <Route exact path="/" component={ Home } />
         <Route exact path="/signup" render={ props => <Signup {...props} handleCurrentUser={ handleCurrentUser } /> } />
         <Route exact path="/login" render={ props => <Login {...props} handleCurrentUser={ handleCurrentUser } /> } />
+        <Route exact path="/about" component={About} />
      </Switch>
     </BrowserRouter>
     </div>
