@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
   
     # logout - destroy the session
     def destroy
-      reset_session
+      # reset_session
+      session.delete :user_id
       render json: { errors: ["Successfully logged out"]}, status: :ok
     end
   end
