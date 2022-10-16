@@ -6,6 +6,20 @@ class WineriesController < ApplicationController
         wineries = Winery.all
         render json: wineries, status: :ok
       end
+
+      def show
+        # winery = find_winery
+        # render json: winery, status: :ok
+
+
+        @bottle = Bottle.new
+        @user_id = current_user.id
+        @winery = Winery.find(params[:id])
+        respond_to do |format|
+          format.html { render :show }
+          format.json { render json: @winery }
+        end
+      end
     
       def new
         winery =  Winery.new
@@ -17,27 +31,15 @@ class WineriesController < ApplicationController
       end
     
     
-      def show
-        @bottle = Bottle.new
-        @user_id = current_user.id
-        @winery = Winery.find(params[:id])
-        respond_to do |format|
-          format.html { render :show }
-          format.json { render json: @winery }
-        end
-      end
-    
       def update
-        if @winery.update(winery_params)
-          redirect_to @winery
-        else
-          render :edit
-        end
+        winery = find_winery
+        winery.update!(winery_params)
+        render json: winery, status: :ok
       end
     
       private
     
-      def set_winery
+      def find_winery
         @winery = Winery.find(params[:id])
       end
     
