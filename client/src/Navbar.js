@@ -1,28 +1,19 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { logout } from './actions/auth'
-// import WineryItem from './WineryItem'
+import React from "react";
+import { Navbar, Nav } from 'react-bootstrap'
 
-const Navbar = ({ loggedIn, currentUser, logoutCurrentUser }) => {
-  if( loggedIn ) {
+class NavBar extends React.Component {
+  render() {
     return (
-      <ul>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/logout" onClick={ (e) => logout(e, logoutCurrentUser) }>Logout</NavLink></li>
-        <li><NavLink exact to="/wineries"> Wineries </NavLink> </li>
-        <p> Welcome to your wine cellar {currentUser}!</p>
-        {/* <WineryItem /> */}
-      </ul>
-    )
+      <Navbar bg="light" variant="light">
+        <Navbar.Brand href="/">Virtual Wine Cellar</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link href="/login">Login</Nav.Link>
+          <Nav.Link href="/logout">Logout</Nav.Link>
+          
+        </Nav>
+      </Navbar>
+    );
   }
-
-  return (
-    <ul>
-      <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/signup">Create Account</NavLink></li>
-      <li><NavLink to="/login">Login</NavLink></li>
-    </ul>
-  )
 }
 
-export default Navbar
+export default NavBar;
