@@ -8,9 +8,9 @@ resources :wineries
 resources :bottles, only: [:index, :show, :new, :create, :edit, :update]
 
 post '/login', to: 'sessions#create'
-get '/current-user', to: 'users#get_current_user'
+# get '/current-user', to: 'users#get_current_user'
 post '/signup', to: 'users#create'
-# get '/me', to: 'users#show'
+get '/me', to: 'users#show'
 delete '/logout', to: 'sessions#destroy'
 
 
