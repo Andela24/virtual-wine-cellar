@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { login } from './actions/auth'
+import { login } from './Actions/auth'
 
 const Login = ({ handleCurrentUser }) => {
   const [state, setState] = useState({

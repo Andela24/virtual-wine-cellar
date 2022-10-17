@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from './Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'; 
-import { getCurrentUser } from './actions/auth';
+import { getCurrentUser } from './Actions/auth';
 
 
 
