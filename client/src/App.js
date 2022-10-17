@@ -16,6 +16,25 @@ function App() {
   const [loggedIn, setLoggedIn]= useState(false);
   const [loading, setLoading]= useState(true);
 
+  const [wineryData, setWineryData] = useState([])
+
+  useEffect(() => {
+    fetch("/wineries")
+      .then((r) => r.json())
+      .then((wine) => {console.log(wine)});
+  }, []);
+
+  function handleUpdateWine(updatedWineObj) {
+    const editedWines = wineryData.map((item) => {
+      if (item.id === updatedWineObj.id) {
+        return updatedWineObj;
+      } else {
+        return item;
+      }
+    });
+    setWineryData(editedWines);
+  }
+
   const handleCurrentUser = (user) => {
     if(user.username) {
       setCurrentUser(user);

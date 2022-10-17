@@ -47,4 +47,4 @@ class WineriesController < ApplicationController
         params.require(:winery).permit(:name)
       end
     end
-end
+

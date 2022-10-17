@@ -1,3 +1,4 @@
+
 export const createAccount = async (details, handleCurrentUser) => {
   const resp = await fetch('/signup', {
     method: "POST",
