@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { logout } from './actions/auth'
-
+// import WineryItem from './WineryItem'
 
 const Navbar = ({ loggedIn, currentUser, logoutCurrentUser }) => {
   if( loggedIn ) {
@@ -9,7 +9,9 @@ const Navbar = ({ loggedIn, currentUser, logoutCurrentUser }) => {
       <ul>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/logout" onClick={ (e) => logout(e, logoutCurrentUser) }>Logout</NavLink></li>
-        
+        <li><NavLink exact to="/wineries"> Wineries </NavLink> </li>
+        <p> Welcome to your wine cellar {currentUser}!</p>
+        {/* <WineryItem /> */}
       </ul>
     )
   }

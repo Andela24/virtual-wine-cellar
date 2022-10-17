@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Navbar from './Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'; 
 import { getCurrentUser } from './actions/auth';
-// import { useNavigate } from 'react-router-dom';
+
 
 
 import Home from './Home';
@@ -10,8 +10,8 @@ import Login from './Login';
 import Signup from './Signup';
 import About from './About';
 
+
 function App() {
-  // const navigate = useNavigate();
   const [currentUser, setCurrentUser]= useState(null);
   const [loggedIn, setLoggedIn]= useState(false);
   const [loading, setLoading]= useState(true);
@@ -24,16 +24,16 @@ function App() {
       .then((wine) => {console.log(wine)});
   }, []);
 
-  function handleUpdateWine(updatedWineObj) {
-    const editedWines = wineryData.map((item) => {
-      if (item.id === updatedWineObj.id) {
-        return updatedWineObj;
-      } else {
-        return item;
-      }
-    });
-    setWineryData(editedWines);
-  }
+  // function handleUpdateWine(updatedWineObj) {
+  //   const editedWines = wineryData.map((item) => {
+  //     if (item.id === updatedWineObj.id) {
+  //       return updatedWineObj;
+  //     } else {
+  //       return item;
+  //     }
+  //   });
+  //   setWineryData(editedWines);
+  // }
 
   const handleCurrentUser = (user) => {
     if(user.username) {

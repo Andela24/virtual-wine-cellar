@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 
   return (
     <div className="header-background">
-      <h1 className="header">Calmer</h1>
+      <h1 className="header">Wine cellar</h1>
       <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} logoutCurrentUser ={logoutCurrentUser }/>
     </div>
   )
