@@ -46,7 +46,6 @@ useEffect(() => {
         <Route exact path="/" component={ Home } />
         <Route exact path="/signup" render={ props => <Signup {...props} handleCurrentUser={ handleCurrentUser } /> } />
         <Route exact path="/login" render={ props => <Login {...props} handleCurrentUser={ handleCurrentUser } /> } />
-        <Route exact path="/about" component={About} />
      </Switch>
     </BrowserRouter>
     </div>
