@@ -7,7 +7,7 @@ const ListWineries = ({ wineries}) => {
 const wineryCards = wineries.map((winery, index) => <WineryCard key={index} winery={winery}/>)
   return (
     <div>
-      <h1>Winery list</h1>
+      <h1> Winery list</h1>
       {wineryCards}
     </div>
   )

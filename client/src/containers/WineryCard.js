@@ -1,11 +1,14 @@
 import React from 'react'
+import { useHistory} from 'react-router-dom'
 
 const WineryCard = ( {winery} ) => {
-  
+  //add bottles button
+  const history=useHistory()
+
   return (
     <div>
-      <h1>Winery Hello</h1>
-      <h2>{winery.name} </h2>
+      <li>{winery.name} </li>
+     <button onClick={() => history.push("/bottles")}>Add me</button>
     </div>
   )
 }

@@ -8,15 +8,17 @@ import ListWineries from './containers/ListWineries';
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
+import BottleList from './containers/BottleList';
 // import About from './About';
 
 
 
 function App() {
-  const [currentUser, setCurrentUser]= useState(null);
+  const [currentUser, setCurrentUser]= useState({});
   const [loggedIn, setLoggedIn]= useState(false);
   const [loading, setLoading]= useState(true);
   const [wineries, setWineries] = useState([])
+  const [bottles, setBottles] =useState([])
 
   const handleCurrentUser = (user) => {
     if(user.username) {
@@ -44,6 +46,11 @@ useEffect(() => {
   .then(wineries => setWineries(wineries))
 }, [])
 
+useEffect(() => {
+  fetch("/bottles")
+  .then(resp => resp.json())
+  .then(bottles => setBottles(bottles))
+}, [])
 
   return (
     
@@ -51,11 +58,12 @@ useEffect(() => {
     <BrowserRouter> 
     <Navbar loggedIn={ loggedIn } logoutCurrentUser={ logoutCurrentUser } />
     <Switch>
-        <Route exact path="/" component={ Home } />
+        <Route exact path="/" render={ props => <Home {...props} loggedIn={loggedIn}/>} />
         <Route exact path="/signup" render={ props => <Signup {...props} handleCurrentUser={ handleCurrentUser } /> } />
         <Route exact path="/login" render={ props => <Login {...props} handleCurrentUser={ handleCurrentUser } /> } />
-        <Route exact path="/wineries" component={<ListWineries wineries={wineries}/> }  />
         
+        <Route exact path="/wineries" render={ props => <ListWineries {...props} wineries={wineries}/> }  />
+        <Route exact path="/bottles" render={ props => <BottleList {...props} bottles={bottles}/> }  />
       
      </Switch>
     </BrowserRouter>
