@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { createAccount } from './Actions/auth'
+import { useHistory } from 'react-router-dom'
 
 const Signup = ({ handleCurrentUser }) => {
+  const history=useHistory()
   const [state, setState] = useState({
     username: '',
     password: ''
@@ -18,6 +20,7 @@ const Signup = ({ handleCurrentUser }) => {
     e.preventDefault();
 
     createAccount(state, handleCurrentUser)
+    history.push("/")
   }
 
   return (

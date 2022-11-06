@@ -5,9 +5,6 @@ import { getCurrentUser } from './Actions/auth';
 import ListWineries from './containers/ListWineries';
 
 
-
-
-
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
