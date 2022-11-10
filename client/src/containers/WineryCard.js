@@ -8,7 +8,7 @@ const WineryCard = ( {winery} ) => {
   return (
     <div>
       <li>{winery.name} </li>
-     <button onClick={() => history.push("/bottles")}>Add me</button>
+     <button onClick={() => history.push("/bottles")}> View bottles from this winery</button>
     </div>
   )
 }

@@ -1,33 +1,27 @@
 class WineriesController < ApplicationController
-    before_action :logged_in_user
-    before_action :set_winery, only: [:show, :edit, :update]
+  skip_before_action :authorize
+  before_action :set_winery, only: [:show, :update, :destroy]
 
+  # get / wineries
     def index
-        wineries = Winery.all
-        render json: wineries, status: :ok
+        @wineries = Winery.all
+        render json: @wineries, status: :ok
       end
 
+      # GET/wineries:id
       def show
-        # winery = find_winery
-        # render json: winery, status: :ok
-
-
-        @bottle = Bottle.new
-        @user_id = current_user.id
         @winery = Winery.find(params[:id])
-        respond_to do |format|
-          format.html { render :show }
-          format.json { render json: @winery }
-        end
+        render json: @winery, include: :bottles, status: :ok
       end
-    
-      def new
-        winery =  Winery.new
-      end
-    
+
+      # def new
+      #   winery =  Winery.new
+      # end
+
+     # POST
       def create
-        winery = Winery.create(winery_params)
-        render json: winery, status: 201
+        @winery = Winery.create(winery_params)
+        render json: @winery, status: 201
       end
     
     
@@ -44,7 +38,7 @@ class WineriesController < ApplicationController
       end
     
       def winery_params
-        params.require(:winery).permit(:name)
+        params.permit(:name)
       end
     end
 

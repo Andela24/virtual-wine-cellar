@@ -1,35 +1,44 @@
 class BottlesController < ApplicationController
+    skip_before_action :authorize
+    before_action :set_bottle, only: [:show, :update, :destroy]
+# get/ bottles
 
     def index
-        bottles = Bottle.all
-        render json: bottles, status: :ok
+        @bottles = Bottle.all
+        render json: @bottles, status: :ok
 
     end
 
+    # GET/bottles:id
     def show
-        bottle = find_bottle
-        render json: bottle, status: :ok
+        
+        render json: @bottle, status: :ok
     end
 
     def create
-        bottle = Bottle.create!(bottle_params)
-        render json: bottle, status: :created
+        user=User.find(session[:user_id])
+        if user
+        @bottle = Bottle.create!(bottle_params)
+        render json: @bottle, status: :created
+
+        else
+            render json: { error: 'User not found'}, status: 404
+        end
     end
 
 
     def destroy
-        bottle = find_bottle
-        bottle.destroy
-        head :no_content
+        @bottle.destroy
     end
+
     private 
 
-    def find_bottle 
-        Bottle.find(params[:id])
+    def set_bottle 
+       @bottle= Bottle.find(params[:id])
     end
 
     def bottle_params 
-        params.permit(:description, :winery_id, :user_id)
+        params.permit(:title, :brand, :wine_type, :grape_variety, :vintage, :winery_id, :user_id )
     end
 end
-end
+

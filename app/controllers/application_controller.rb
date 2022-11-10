@@ -1,12 +1,17 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
+  before_action :authorize
 
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   
-  before_action :authorize
 
   
   private 
+
+  def current_user
+    @current_user ||= User.find_by_id(session[:user_id]) #memoization
+  end
 
   def authorize
   @current_user = User.find_by_id(session[:user_id])

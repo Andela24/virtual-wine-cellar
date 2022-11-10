@@ -3,6 +3,8 @@ import Navbar from './Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'; 
 import { getCurrentUser } from './Actions/auth';
 import ListWineries from './containers/ListWineries';
+import AddBottle from './AddBottle';
+import AddWinery from './containers/AddWinery';
 
 
 import Home from './Home';
@@ -17,8 +19,8 @@ function App() {
   const [currentUser, setCurrentUser]= useState({});
   const [loggedIn, setLoggedIn]= useState(false);
   const [loading, setLoading]= useState(true);
-  const [wineries, setWineries] = useState([])
-  const [bottles, setBottles] =useState([])
+  const [wineries, setWineries] = useState([]);
+  const [bottles, setBottles] =useState([]);
 
   const handleCurrentUser = (user) => {
     if(user.username) {
@@ -30,7 +32,7 @@ function App() {
   }
 
   const logoutCurrentUser = () => {
-    setCurrentUser(null);
+    setCurrentUser({});
     setLoggedIn(false);
     setLoading(false);
   }
@@ -52,17 +54,26 @@ useEffect(() => {
   .then(bottles => setBottles(bottles))
 }, [])
 
+const onAddWinery = (winery) => {
+  setWineries([...wineries, winery])
+}
+
+const onAddBottle = (bottle) => {
+  setBottles([...bottles, bottle])
+}
+
   return (
     
     <div className="App">
     <BrowserRouter> 
     <Navbar loggedIn={ loggedIn } logoutCurrentUser={ logoutCurrentUser } />
     <Switch>
-        <Route exact path="/" render={ props => <Home {...props} loggedIn={loggedIn}/>} />
+        <Route exact path="/" render={ props => <Home {...props} loggedIn={loggedIn} currentUser={currentUser}/>} />
         <Route exact path="/signup" render={ props => <Signup {...props} handleCurrentUser={ handleCurrentUser } /> } />
         <Route exact path="/login" render={ props => <Login {...props} handleCurrentUser={ handleCurrentUser } /> } />
-        
-        <Route exact path="/wineries" render={ props => <ListWineries {...props} wineries={wineries}/> }  />
+        <Route exact path="/bottles/new" render={ props => <AddBottle {...props} onAddBottle={onAddBottle} /> }  />
+        <Route exact path="/wineries/new" render={ props => <AddWinery {...props} onAddWinery={onAddWinery} /> }  />
+        <Route exact path="/wineries" render={ props => <ListWineries {...props} wineries={wineries} /> }  />
         <Route exact path="/bottles" render={ props => <BottleList {...props} bottles={bottles}/> }  />
       
      </Switch>

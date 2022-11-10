@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   # Leave this here to help deploy your app later!
 
 
-resources :wineries
-resources :bottles, only: [:index, :show, :new, :create, :edit, :update]
+resources :users, only: [:index, :show, :create]
+resources :wineries, only: [:index, :show, :create]
+resources :bottles, only: [:index, :show, :create, :update, :destroy]
 
 post '/login', to: 'sessions#create'
 post '/signup', to: 'users#create'
@@ -15,5 +16,5 @@ delete '/logout', to: 'sessions#destroy'
 
 
 
-  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
