@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BottleCard = ({bottle} ) => {
+const BottleCard = ({bottle, deleteBottle} ) => {
   return (
     <div>
     <h4>{bottle.title}</h4>

@@ -16,6 +16,7 @@ class BottlesController < ApplicationController
     end
 
     def create
+        binding.pry
         user=User.find(session[:user_id])
         if user
         @bottle = Bottle.create!(bottle_params)
@@ -38,7 +39,7 @@ class BottlesController < ApplicationController
     end
 
     def bottle_params 
-        params.permit(:title, :brand, :wine_type, :grape_variety, :vintage, :winery_id, :user_id )
+        params.permit(:title, :brand, :wine_type, :grape_variety, :vintage, :winery_id)
     end
 end
 

@@ -1,12 +1,21 @@
-import React from 'react'
+// import React from 'react'
+// import { useEffect, useState } from 'react'
 
-const removeBottle = () => {
-    
-  return (
-    <div>
+// const removeBottle = () => {
+// // const [deleteBottle, setDeleteBottle]=useState({})
+
+// // useEffect( ()=> {
+// //     fetch('/bottles')
+// //       .then(resp => resp.json())
+// //       .then(deleteBottle => console.log(deleteBottle))
+// //   },[])
+
+  
+//   return (
+//     <div>
       
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default removeBottle
+// export default removeBottle

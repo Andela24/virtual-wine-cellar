@@ -24,7 +24,7 @@ end
     @user = User.create!(user_params)
     if @user.valid?
       # logs in user
-      session[:user_id] = @user.id # remembering who our user is
+      session[:user_id] = @user.id # login/remembering who our user is
       render json: @user, status: :created
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
