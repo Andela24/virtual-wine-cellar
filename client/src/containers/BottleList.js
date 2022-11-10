@@ -9,6 +9,7 @@ const BottleList = ( {bottles} ) => {
     <div>
         <h1> Bottle List</h1>
         <button onClick={() => history.push('/bottles/new')}>Add New Bottle</button>
+        <button onClick={() => history.push('/bottles/:id')}> Delete Bottle</button>
       {bottleCards}
     </div>
   )

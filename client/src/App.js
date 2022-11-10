@@ -75,7 +75,7 @@ const onAddBottle = (bottle) => {
         <Route exact path="/wineries/new" render={ props => <AddWinery {...props} onAddWinery={onAddWinery} /> }  />
         <Route exact path="/wineries" render={ props => <ListWineries {...props} wineries={wineries} /> }  />
         <Route exact path="/bottles" render={ props => <BottleList {...props} bottles={bottles}/> }  />
-      
+        {/* <Route exact path='/bottles/:id' render={ props => <RemoveBottle {...props} bottles={bottles}/> } /> */}
      </Switch>
     </BrowserRouter>
     </div>
