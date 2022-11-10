@@ -71,11 +71,13 @@ const onAddBottle = (bottle) => {
         <Route exact path="/" render={ props => <Home {...props} loggedIn={loggedIn} currentUser={currentUser}/>} />
         <Route exact path="/signup" render={ props => <Signup {...props} handleCurrentUser={ handleCurrentUser } /> } />
         <Route exact path="/login" render={ props => <Login {...props} handleCurrentUser={ handleCurrentUser } /> } />
+        <Route exact path="/bottles" render={ props => <BottleList {...props} bottles={bottles}/> }  />
         <Route exact path="/bottles/new" render={ props => <AddBottle {...props} onAddBottle={onAddBottle} /> }  />
         <Route exact path="/wineries/new" render={ props => <AddWinery {...props} onAddWinery={onAddWinery} /> }  />
         <Route exact path="/wineries" render={ props => <ListWineries {...props} wineries={wineries} /> }  />
-        <Route exact path="/bottles" render={ props => <BottleList {...props} bottles={bottles}/> }  />
-        {/* <Route exact path='/bottles/:id' render={ props => <RemoveBottle {...props} bottles={bottles}/> } /> */}
+        
+        {/* <Route exact path='/bottles/:id' render={ props => <RemoveBottle {...props} bottles={bottles}/> } />
+        {/* <Route exact path='/users/:id/bottles' render={ props => <MyCellar {...props} /> } /> */}
      </Switch>
     </BrowserRouter>
     </div>
