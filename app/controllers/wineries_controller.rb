@@ -1,5 +1,5 @@
 class WineriesController < ApplicationController
-  skip_before_action :authorize
+  skip_before_action :authenticate_user
   before_action :set_winery, only: [:show, :update, :destroy]
 
   # get / wineries
@@ -14,9 +14,6 @@ class WineriesController < ApplicationController
         render json: @winery, include: :bottles, status: :ok
       end
 
-      # def new
-      #   winery =  Winery.new
-      # end
 
      # POST
       def create

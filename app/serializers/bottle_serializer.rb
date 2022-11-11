@@ -3,7 +3,12 @@ class BottleSerializer < ActiveModel::Serializer
 
   belongs_to :user
   belongs_to :winery
-  # has_many :bottle_prices
- 
+  # has_one :winery
+  # def winery 
+  #   {name:object.winery.name}
+  # end
 
+  # def username
+  #   object.user.username if object.user
+  # end
 end

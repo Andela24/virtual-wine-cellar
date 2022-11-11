@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(username: 'Angela', password: 'angela')
  Winery.create([ {name: 'Argyle Winery'}, {name: 'Willamette Valley Vineyards'}, {name: 'Elk Cove Vinayards'}, {name: 'Rex Hills'}])
- Bottle.create(title: 'Vampire', brand: 'Screaming Eagle', wine_type: 'Red', grape_variety: 'Cabarnet Franc', vintage: '2016', user_id:1, winery_id:2 )
+ Bottle.create(title: 'Vampire', wine_type: 'Red', grape_variety: 'Cabarnet Franc', vintage: '2016',user_id:4, winery_id:2 )
 
 
