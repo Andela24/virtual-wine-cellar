@@ -12,7 +12,7 @@ const Navbar = ({ loggedIn, currentUser, logoutCurrentUser }) => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/logout" onClick={ (e) => logout(e, logoutCurrentUser) }>Logout</NavLink></li>
         <li><NavLink to="/wineries" onClick={() =>history.push('/wineries') }>All Wineries</NavLink></li>
-        <li><NavLink to="/bottles" onClick={() =>history.push('/bottles') }>All Bottles</NavLink></li>
+        <li><NavLink to="/bottles" onClick={() =>history.push('/bottles') }>My Bottles</NavLink></li>
       
        
       </ul>

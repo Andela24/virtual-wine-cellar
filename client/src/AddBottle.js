@@ -1,15 +1,19 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const AddBottle = ({ onAddBottle }) => {
+
     const [form, setForm]= useState({
         title: '',
-        brand: '',
         wine_type: '',
         grape_variety: '',
         vintage: '',
     })
+    const {winery_id}=useParams()
+
     const history=useHistory()
+
 
     const handleChange = (e) => {
         setForm({...form, 
@@ -25,13 +29,22 @@ const AddBottle = ({ onAddBottle }) => {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
               },
-              body: JSON.stringify(form)
+              body: JSON.stringify({
+                winery_id: parseInt(winery_id),
+                title: form.title,
+                wine_type: form.wine_type,
+                grape_variety: form.grape_variety,
+                vintage: form.vintage,
+
+              })
              
         })
         .then(resp=> resp.json())
-        .then(bottle => console.log(bottle))
+        .then(bottle => onAddBottle(bottle))
         history.push('/bottles')
     }
+
+
 
     // const onSubmit = (e) => {
     //     e.preventDefault()
@@ -59,14 +72,7 @@ const AddBottle = ({ onAddBottle }) => {
                 value={form.title} 
                 onChange={handleChange} />
             </div>
-            <div className='form-control'>
-                <label>Brand</label>
-                <input type='text' 
-                placeholder='Add Brand' 
-                name= 'brand'
-                value={form.brand} 
-                onChange={handleChange}/>
-            </div>
+        
             <div className='form-control'>
                 <label>Type of Wine</label>
                 <input type='text' 
