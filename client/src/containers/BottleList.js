@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 
 
 const BottleList = ( {bottles, removeBottle} ) => {
-  const [bottle, setBottle]=useState([])
+  const [bottle, setBottle]=useState('')
   const {id}=useParams()
   const history=useHistory()
  
@@ -24,10 +24,11 @@ const BottleList = ( {bottles, removeBottle} ) => {
     history.push('/wineries')
   }
 
-    const bottleCards = bottles.map((bottle, index) => <BottleCard key={index} bottle={bottle} handleDelete={handleDelete}/>)
+   const bottleCards = bottles.map((bottle, index) => <BottleCard key={index} bottle={bottle} handleDelete={handleDelete}/>)
   return (
     <div>
         <h1> My Bottle List</h1>
+       <button onClick={(e)=>history.push('/bottles/new') }>Add new bottles</button>
       {bottleCards}
     </div>
   )

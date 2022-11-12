@@ -29,19 +29,19 @@ const AddBottle = ({ onAddBottle }) => {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
               },
-              body: JSON.stringify({
-                winery_id: parseInt(winery_id),
-                title: form.title,
-                wine_type: form.wine_type,
-                grape_variety: form.grape_variety,
-                vintage: form.vintage,
-
-              })
+              body: JSON.stringify(form)
              
         })
-        .then(resp=> resp.json())
-        .then(bottle => onAddBottle(bottle))
-        history.push('/bottles')
+        .then(resp => {
+            if(resp.ok){
+                resp.json().then(onAddBottle)  
+                history.push('/bottles')
+          }
+        })
+
+        // .then(resp=> resp.json())
+        // .then(bottle => onAddBottle(bottle))
+        // history.push('/bottles')
     }
 
 

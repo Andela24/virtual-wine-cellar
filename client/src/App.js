@@ -12,9 +12,6 @@ import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 import BottleList from './containers/BottleList';
-// import About from './About';
-
-
 
 function App() {
   const [currentUser, setCurrentUser]= useState({});
