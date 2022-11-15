@@ -9,11 +9,7 @@ const BottleDetail = () => {
     const {id}=useParams()
     // const history=useHistory()
 
-    useEffect( ()=> {
-            fetch(`/bottles/${id}`)
-              .then(resp => resp.json())
-              .then(bottle => setBottle(bottle))
-          },[id])
+  
 
     //       const handleDelete = (id) => {
     //         fetch(`/bottles/${params.id}`, 

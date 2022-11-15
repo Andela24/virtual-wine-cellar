@@ -3,6 +3,11 @@ import { useHistory } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
 const AddBottle = ({ onAddBottle }) => {
+    // You have to create the bottle from that particular winery. 
+    // Not from the bottle page. So it has to go through the winery.
+    //  It needs the winery ID for create the bottle.
+    //  So it goes to the winery/grabs the id/ then creates a bottle.
+    // So put the fetch and everything on that page from the bottle detail page.
 
     const [form, setForm]= useState({
         title: '',
@@ -44,23 +49,6 @@ const AddBottle = ({ onAddBottle }) => {
         // history.push('/bottles')
     }
 
-
-
-    // const onSubmit = (e) => {
-    //     e.preventDefault()
-
-    //     if(!title) {
-    //         alert('Please add a title.')
-    //         return
-    //     }
-
-    //     // onAddWinery({ title, vintage, type, grape})
-
-    //     setTitle('')
-    //     setVintage('')
-    //     setType('')
-    //     setGrape('')
-    // }
 
     return (
         <form className='add-form' onSubmit={onSubmit}>
