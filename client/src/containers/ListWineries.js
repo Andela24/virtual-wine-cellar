@@ -1,12 +1,16 @@
 // list all of wineries
 
-import React from 'react'
+import React, { useState } from 'react'
 import WineryCard from './WineryCard'
 import {useHistory} from 'react-router-dom'
+import AddBottle from '../AddBottle'
 
-const ListWineries = ({ wineries}) => {
-    const history = useHistory()
-const wineryCards = wineries.map((winery, index) => <WineryCard key={index} winery={winery}/>)  
+
+const ListWineries = ({ wineries, currentUser}) => {
+  const [wineryId, setWineryId] = useState(null)
+  const history = useHistory()
+const wineryCards = wineries.map((winery, index) => <WineryCard key={index} winery={winery} setWineryId={setWineryId} currentUser={currentUser}/>) 
+if (!wineryId) {
 return (
     <div>
       <h1> Winery list</h1> 
@@ -15,5 +19,15 @@ return (
     </div>
   )
 }
+else {
+return (
+  <div>
+   <AddBottle wineryId={wineryId} currentUser={currentUser}/>
+  </div>
+)
+}
+}
+
+
 
 export default ListWineries

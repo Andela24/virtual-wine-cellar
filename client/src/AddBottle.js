@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 
-const AddBottle = ({ onAddBottle }) => {
-    // You have to create the bottle from that particular winery. 
+const AddBottle = ({ onAddBottle, wineryId, currentUser }) => {
+    // Create the bottle from that particular winery. 
     // Not from the bottle page. So it has to go through the winery.
     //  It needs the winery ID for create the bottle.
     //  So it goes to the winery/grabs the id/ then creates a bottle.
@@ -14,8 +13,11 @@ const AddBottle = ({ onAddBottle }) => {
         wine_type: '',
         grape_variety: '',
         vintage: '',
+        winery_id: wineryId,
+        user_id: currentUser.id
     })
-    const {winery_id}=useParams()
+    // const {winery_id}=useParams()
+    console.log(form)
 
     const history=useHistory()
 
@@ -40,7 +42,7 @@ const AddBottle = ({ onAddBottle }) => {
         .then(resp => {
             if(resp.ok){
                 resp.json().then(onAddBottle)  
-                history.push('/bottles')
+                history.push('/userPage')
           }
         })
 

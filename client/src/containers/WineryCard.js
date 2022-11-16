@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory} from 'react-router-dom'
 
-const WineryCard = ( {winery} ) => {
+const WineryCard = ( {winery, setWineryId} ) => {
   //add bottles button
   const history=useHistory()
 
@@ -9,7 +9,7 @@ const WineryCard = ( {winery} ) => {
     <div>
       <li>{winery.name} </li>
      
-     <button onClick={() => history.push(`/wineries/${winery.id}/bottles`)}> Add bottles from this winery</button>
+     <button onClick={() => setWineryId(winery.id)}> Add bottles from this winery</button>
     </div>
   )
 }

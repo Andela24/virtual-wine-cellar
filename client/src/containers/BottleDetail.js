@@ -9,8 +9,6 @@ const BottleDetail = () => {
     const {id}=useParams()
     // const history=useHistory()
 
-  
-
     //       const handleDelete = (id) => {
     //         fetch(`/bottles/${params.id}`, 
     //         {method: "DELETE",
