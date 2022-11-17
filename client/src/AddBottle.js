@@ -14,10 +14,10 @@ const AddBottle = ({ onAddBottle, wineryId, currentUser }) => {
         grape_variety: '',
         vintage: '',
         winery_id: wineryId,
-        user_id: currentUser.id
+        user_id: currentUser.id,
     })
-    // const {winery_id}=useParams()
-    console.log(form)
+   
+    // console.log(form)
 
     const history=useHistory()
 
@@ -42,7 +42,7 @@ const AddBottle = ({ onAddBottle, wineryId, currentUser }) => {
         .then(resp => {
             if(resp.ok){
                 resp.json().then(onAddBottle)  
-                history.push('/userPage')
+                history.push('/bottles')
           }
         })
 

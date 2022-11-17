@@ -9,6 +9,7 @@ import AddBottle from '../AddBottle'
 const ListWineries = ({ wineries, currentUser}) => {
   const [wineryId, setWineryId] = useState(null)
   const history = useHistory()
+  
 const wineryCards = wineries.map((winery, index) => <WineryCard key={index} winery={winery} setWineryId={setWineryId} currentUser={currentUser}/>) 
 if (!wineryId) {
 return (

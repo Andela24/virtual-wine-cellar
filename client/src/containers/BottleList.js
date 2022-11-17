@@ -10,11 +10,6 @@ const BottleList = ( {bottles, removeBottle} ) => {
   const {id}=useParams()
   const history=useHistory()
  
-  // useEffect( ()=> {
-  //   fetch(`/bottles/${id}`)
-  //     .then(resp => resp.json())
-  //     .then(bottle => setBottle(bottle))
-  // },[id])
 
   const handleDelete = id => {
     fetch(`/bottles/${id}`, 
@@ -23,8 +18,16 @@ const BottleList = ( {bottles, removeBottle} ) => {
     removeBottle( id );
     history.push('/bottles')
   }
+  const handleEdit = () => {
+    history.push(`/bottles/${bottle.id}/edit`)
+  }
+  // const editBottleButton = (bottle) => {
+  //   if (bottle.permitted){
+  //         return <button style={{fontFamily:'cursive'}} onClick={handleEdit}>Edit Bottle</button>
+  //       }
+  //   }
 
-   const bottleCards = bottles.map((bottle, index) => <BottleCard key={index} bottle={bottle} handleDelete={handleDelete}/>)
+   const bottleCards = bottles.map((bottle, index) => <BottleCard key={index} bottle={bottle} handleDelete={handleDelete} handleEdit={handleEdit}/>)
   return (
     <div>
         <h1> My Bottle List</h1>

@@ -7,6 +7,7 @@ import AddBottle from './AddBottle';
 import AddWinery from './containers/AddWinery';
 // import BottleDetail from './containers/BottleDetail';
 import UserPage from './containers/UserPage';
+import EditBottle from './containers/EditBottle';
 
 
 import Home from './Home';
@@ -61,7 +62,16 @@ const onAddBottle = (bottle) => {
   setBottles([...bottles, bottle])
 }
 
- 
+const updateBottle = (updatedBottle) => setBottles(current => {
+  return current.map(bottle => {
+    if(bottle.id === updatedBottle.id){
+      return updatedBottle
+    } else {
+      return bottle
+    }
+  })
+}) 
+
 const removeBottle= id => {
   setBottles(bottles.filter(bottle=> bottle.id !== id))
   }
@@ -74,13 +84,13 @@ const removeBottle= id => {
         <Route exact path="/" render={ props => <Home {...props} loggedIn={loggedIn} currentUser={currentUser}/>} />
         <Route exact path="/signup" render={ props => <Signup {...props} handleCurrentUser={ handleCurrentUser } /> } />
         <Route exact path="/login" render={ props => <Login {...props} handleCurrentUser={ handleCurrentUser } /> } />
-        <Route exact path="/bottles" render={ props => <BottleList {...props} bottles={bottles} removeBottle={removeBottle} /> }  />
+        <Route exact path="/bottles" render={ props => <BottleList {...props} bottles={bottles} wineries={wineries} removeBottle={removeBottle} /> }  />
         {/* <Route exact path="/bottles/:id" render={ props => <BottleDetail {...props} bottles={bottles} /> }  /> */}
         <Route exact path="/bottles/new" render={ props => <AddBottle {...props} onAddBottle={onAddBottle}  /> }  />
         <Route exact path="/wineries/new" render={ props => <AddWinery {...props} onAddWinery={onAddWinery} /> }  />
         <Route exact path="/wineries" render={ props => <ListWineries {...props} wineries={wineries} currentUser={currentUser} /> }  />
         <Route exact path="/userPage" render= { props =><UserPage {...props} bottles={bottles} /> } />
-
+        <Route exact path="/bottles/:id/edit" render={ props => <EditBottle {...props} updateBottle={updateBottle}/>} />
         {/* <Route exact path='/wineries/:id/bottles' render={ props => <BottleDetail {...props} /> } /> */}
 
      </Switch>

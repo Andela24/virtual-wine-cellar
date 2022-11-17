@@ -6,18 +6,6 @@ import BottleCard from './BottleCard'
 
 const BottleDetail = () => {
     const [bottle, setBottle]=useState({})
-    const {id}=useParams()
-    // const history=useHistory()
-
-    //       const handleDelete = (id) => {
-    //         fetch(`/bottles/${params.id}`, 
-    //         {method: "DELETE",
-    //         headers: {'Content-Type': 'application/json'}
-    //         } )
-        
-    //         removeBottle( params.id );
-            
-    //       }
 
   return (
     <div>
