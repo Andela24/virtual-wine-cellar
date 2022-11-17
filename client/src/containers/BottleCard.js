@@ -10,7 +10,7 @@ const BottleCard = ({bottle, handleDelete, handleEdit} ) => {
      <li>{bottle.vintage}</li>
      
      {/* <button>Buy for your wine collection</button> */}
-     <button onClick={() => handleEdit(bottle.id)}>Edit Bottle</button>
+     <button onClick={handleEdit}>Edit Bottle</button>
      <button onClick={() => handleDelete(bottle.id)}>Delete Bottle</button>
     </div>
   )

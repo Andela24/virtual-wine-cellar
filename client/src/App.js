@@ -90,6 +90,7 @@ const removeBottle= id => {
         <Route exact path="/wineries/new" render={ props => <AddWinery {...props} onAddWinery={onAddWinery} /> }  />
         <Route exact path="/wineries" render={ props => <ListWineries {...props} wineries={wineries} currentUser={currentUser} /> }  />
         <Route exact path="/userPage" render= { props =><UserPage {...props} bottles={bottles} /> } />
+        
         <Route exact path="/bottles/:id/edit" render={ props => <EditBottle {...props} updateBottle={updateBottle}/>} />
         {/* <Route exact path='/wineries/:id/bottles' render={ props => <BottleDetail {...props} /> } /> */}
 

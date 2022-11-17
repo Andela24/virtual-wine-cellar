@@ -3,28 +3,26 @@ import { useParams } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
 const EditBottle = ( {currentUser, wineryId, updateBottle}) => {
-    const [formData, setFormData]= useState({
-        title: '',
-        wine_type: '',
-        grape_variety: '',
-        vintage: '',
-        winery_id: wineryId,
-        user_id: currentUser.id,
-    })
+  const [form, setForm]= useState({
+    title: '',
+    wine_type: '',
+    grape_variety: '',
+    vintage: ''
+})
 
     const history=useHistory()
     const {id}=useParams()
 
-    console.log(formData)
+    // console.log(form)
 
     useEffect(() => {
         fetch(`/bottles/${id}`)
         .then(res => res.json())
-        .then(setFormData)
-      },[])
+        .then(setForm)
+      },[id])
 
       const handleChange = (e) => {
-        setFormData({...formData, 
+        setForm({...form, 
        [e.target.name]:e.target.value })
     }
     const handleSubmit = (e) => {
@@ -35,7 +33,7 @@ const EditBottle = ( {currentUser, wineryId, updateBottle}) => {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(form)
       })
       .then(resp => {
         if(resp.ok){
@@ -52,18 +50,16 @@ const EditBottle = ( {currentUser, wineryId, updateBottle}) => {
       <h1>Update Bottle</h1>
         <label>Title </label>
         <input type='text' 
-        placeholder='Add Title' 
         name = 'title'
-        value={formData.title} 
+        value={form.title} 
         onChange={handleChange} />
     </div>
 
     <div className='form-control'>
         <label>Type of Wine</label>
         <input type='text' 
-        placeholder='Add Type'
         name = 'wine_type'
-        value={formData.wine_type} 
+        value={form.wine_type} 
         onChange={handleChange}/>
     </div>
    
@@ -71,17 +67,15 @@ const EditBottle = ( {currentUser, wineryId, updateBottle}) => {
     <div className='form-control'>
         <label>Grape Variety</label>
         <input type='text' 
-        placeholder='Add Grape Variety'
         name='grape_variety'
-        value={formData.grape_variety} 
+        value={form.grape_variety} 
         onChange={handleChange}/>
     </div>
     <div className='form-control'>
         <label>Vintage</label>
-        <input type='text' 
-        placeholder='Add Vintage' 
+        <input type='text'  
         name= 'vintage'
-        value={formData.vintage} 
+        value={form.vintage} 
         onChange={handleChange}/>
     </div>
 
