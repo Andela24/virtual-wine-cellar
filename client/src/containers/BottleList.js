@@ -21,14 +21,14 @@ const BottleList = ( {bottles, removeBottle} ) => {
     {method: "DELETE"} )
 
     removeBottle( id );
-    history.push('/wineries')
+    history.push('/bottles')
   }
 
    const bottleCards = bottles.map((bottle, index) => <BottleCard key={index} bottle={bottle} handleDelete={handleDelete}/>)
   return (
     <div>
         <h1> My Bottle List</h1>
-       <button onClick={(e)=>history.push('/bottles/new') }>Add new bottles</button>
+       {/* <button onClick={(e)=>history.push('/bottles/new') }>Add new bottle</button> */}
       {bottleCards}
     </div>
   )

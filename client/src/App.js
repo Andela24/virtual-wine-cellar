@@ -79,7 +79,7 @@ const removeBottle= id => {
         <Route exact path="/bottles/new" render={ props => <AddBottle {...props} onAddBottle={onAddBottle}  /> }  />
         <Route exact path="/wineries/new" render={ props => <AddWinery {...props} onAddWinery={onAddWinery} /> }  />
         <Route exact path="/wineries" render={ props => <ListWineries {...props} wineries={wineries} currentUser={currentUser} /> }  />
-        <Route exact path="/userPage" render= { props =><UserPage {...props} /> } />
+        <Route exact path="/userPage" render= { props =><UserPage {...props} bottles={bottles} /> } />
 
         {/* <Route exact path='/wineries/:id/bottles' render={ props => <BottleDetail {...props} /> } /> */}
 
